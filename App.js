@@ -34,7 +34,6 @@ export default class App extends Component<Props> {
   onChangeDate(date){
     this.setState({date});
   }
-
   onChangeText(newTodo){
     this.setState({newTodo});
   }
@@ -55,11 +54,10 @@ export default class App extends Component<Props> {
       todos: this.state.todos.filter((t, i) => i !== index),
       },() => this.storeTodos())
   }
-
   onPressAllDelete(){
      this.setState({
        todos: [],
-     })
+     },() => this.storeTodos())
   }
   storeTodos(){
     const str = JSON.stringify(this.state.todos);
